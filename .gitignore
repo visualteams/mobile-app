@@ -59,3 +59,5 @@ buck-out/
 /ios/Pods/
 
 android/app/google-services.json
+fastlane/visualteams-308308-6e90cad69c00.json
+

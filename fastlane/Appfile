@@ -1,0 +1,8 @@
+app_identifier("fr.visualteams.app") # The bundle identifier of your app
+apple_id("techexmachina31@gmail.com") # Your Apple email address
+
+itc_team_id("") # App Store Connect Team ID
+team_id("") # Developer Portal Team ID
+
+json_key_file("fastlane/visualteams-308308-6e90cad69c00.json")
+package_name("fr.visualteams.app")

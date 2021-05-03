@@ -1,0 +1,64 @@
+fastlane_require 'dotenv'
+
+import("FastfileConfig")
+import("FastfileCheck")
+import("FastfileEnvironment")
+
+platform :ios do
+  lane :deploy do |options|
+    increment_build_number(
+      build_number: "#{ENV['BUILD']}",
+      xcodeproj: "ios/calmobile.xcodeproj",
+    )
+
+    increment_version_number(
+      version_number: "#{ENV['VERSION']}",
+      xcodeproj: "ios/calmobile.xcodeproj",
+    )
+
+    clear_derived_data
+    build_app(
+        scheme: "visualteams",
+        workspace: "ios/visualteams.xcworkspace",
+        clean: true,
+        silent: true,
+        xcargs: "-allowProvisioningUpdates",
+    )
+
+    upload_to_testflight()
+  end
+
+  lane :refresh_dsyms do
+    download_dsyms                  # Download dSYM files from iTC
+    upload_symbols_to_crashlytics   # Upload them to Crashlytics
+    clean_build_artifacts           # Delete the local dSYM files
+   end
+end
+
+platform :android do
+
+  lane :deploy do |options|
+    sh("yarn jetify")
+
+    android_set_version_code(
+        version_code: ENV['BUILD'],
+        gradle_file: "android/app/build.gradle"
+    )
+
+    android_set_version_Name(
+        version_name: ENV['VERSION'],
+        gradle_file: "android/app/build.gradle"
+    )
+
+    gradle(task: "clean", project_dir: 'android')
+    gradle(
+        task: 'assemble',
+        build_type: 'Release',
+        project_dir: 'android'
+    )
+
+    upload_to_play_store(
+        track: 'internal',
+    )
+  end
+end
