@@ -1,12 +1,12 @@
 import PushNotificationIOS from '@react-native-community/push-notification-ios'
 import PushNotification from 'react-native-push-notification'
 
-console.log('toto')
+export let tokenApp
 
 PushNotification.configure({
   // (optional) Called when Token is generated (iOS and Android)
   onRegister: function (token) {
-    console.log('TOKEN:', token)
+    tokenApp = token
   },
 
   // (required) Called when a remote is received or opened, or local notification is opened
