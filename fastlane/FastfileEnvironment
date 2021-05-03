@@ -4,6 +4,5 @@ private_lane :load_env_file do |options|
   check_env_exists(
     env: ENV["ENV"],
   )
-  Dotenv.overload(".env.#{options[:targetVariant]}")
   Dotenv.overload("../.env")
 end

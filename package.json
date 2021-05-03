@@ -7,8 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint .",
-    "upgrade:pwa": "node-site-downloader download -s https://4bef9364c5ef.ngrok.io -d https://4bef9364c5ef.ngrok.io -o ./ --output-folder-suffix www --include-images -v"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@react-native-community/netinfo": "^6.0.0",
