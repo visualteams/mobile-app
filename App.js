@@ -7,6 +7,7 @@ import { WebView } from 'react-native-webview'
 
 import NetworkError from './src/components/NetworkError'
 import askPermission from './src/lib/askPermission'
+import './src/lib/setupNotifications'
 
 const backgroundStyle = {
   flex: 1,
