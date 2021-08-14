@@ -1,2 +1,5 @@
-Deploy to Android
-fastlane android deploy --env=production
+## Deploy to Android
+
+```bash
+fastlane android deploy --env production
+```
