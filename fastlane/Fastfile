@@ -8,12 +8,12 @@ platform :ios do
   lane :deploy do |options|
     increment_build_number(
       build_number: "#{ENV['BUILD']}",
-      xcodeproj: "ios/calmobile.xcodeproj",
+      xcodeproj: "ios/visualteams.xcodeproj",
     )
 
     increment_version_number(
       version_number: "#{ENV['VERSION']}",
-      xcodeproj: "ios/calmobile.xcodeproj",
+      xcodeproj: "ios/visualteams.xcodeproj",
     )
 
     clear_derived_data
