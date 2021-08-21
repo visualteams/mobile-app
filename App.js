@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import type { Node } from 'react'
-import { SafeAreaView } from 'react-native'
+import { Platform, SafeAreaView } from 'react-native'
 import { useNetInfo } from '@react-native-community/netinfo'
 import SplashScreen from 'react-native-splash-screen'
 import { WebView } from 'react-native-webview'
@@ -14,7 +14,7 @@ const backgroundStyle = {
   flex: 1,
 }
 
-const uri = __DEV__ ? 'https://cb5f4820df19.ngrok.io' : 'https://app.visualteams.fr'
+const uri = __DEV__ ? 'https://3de3-37-165-57-133.ngrok.io' : 'https://app.visualteams.fr'
 
 const App: () => Node = () => {
   const [havePermission, setHavePermission] = useState(false)
@@ -48,6 +48,7 @@ const App: () => Node = () => {
       {netInfo.isConnected && havePermission ? (
         <WebView
           ref={webRef}
+          userAgent={`in-app Mobile ${Platform.OS}`}
           source={{ uri }}
           allowsInlineMediaPlayback
           originWhitelist={['*']}
