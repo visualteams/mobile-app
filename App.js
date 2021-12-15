@@ -14,7 +14,9 @@ const backgroundStyle = {
   flex: 1,
 }
 
-const uri = __DEV__ ? 'https://3de3-37-165-57-133.ngrok.io' : 'https://app.visualteams.fr'
+const uri = __DEV__
+  ? 'https://05c1-2a01-e0a-a7d-b410-329c-23ff-fe00-9f0e.ngrok.io'
+  : 'https://app.visualteams.fr'
 
 const App: () => Node = () => {
   const [havePermission, setHavePermission] = useState(false)
