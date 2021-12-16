@@ -12,6 +12,8 @@ target 'visualteams' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-static-server', :path => '../node_modules/react-native-static-server'
+
   target 'visualteamsTests' do
     inherit! :complete
     # Pods for testing
