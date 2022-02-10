@@ -1,0 +1,2 @@
+function module(n,t,i){var a,e;i.link("../ui/globalTeamId",{globalTeamId:function(n){a=n}},0),i.link("../db/teams/teams",{default:function(n){e=n}},1);var r=function(n){var t,i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0;return isNaN(parseFloat(n))?n:new Intl.NumberFormat("fr-FR",{style:"currency",currency:(null===(t=e.findOne(a.get()))||void 0===t?void 0:t.currency)||"EUR",minimumFractionDigits:i,maximumFractionDigits:i}).format(parseFloat(n).toFixed(i))};i.exportDefault(r)}
+

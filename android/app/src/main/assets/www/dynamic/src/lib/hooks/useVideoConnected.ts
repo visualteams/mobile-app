@@ -1,0 +1,2 @@
+function module(e,n,t){var i,a,l,o;t.link("meteor/react-meteor-data",{useTracker:function(e){i=e}},0),t.link("../isUserOnline",{default:function(e){a=e}},1),t.link("../../db/teams/availability",{default:function(e){l=e}},2),t.link("../../ui/globalTeamId",{globalTeamId:function(e){o=e}},3);var r=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:Meteor.userId(),n=""+e+o.get(),t=i((function(){return l.findOne({_id:n})}),[]);return a(t,"video")};t.exportDefault(r)}
+

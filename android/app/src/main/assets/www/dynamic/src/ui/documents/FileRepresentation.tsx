@@ -1,0 +1,2 @@
+function module(e,t,l){var n,i,a;l.link("react",{"*":function(e){n=e}},0),l.link("@material-ui/icons/MenuBook",{default:function(e){i=e}},1),l.link("@material-ui/core/styles/makeStyles",{default:function(e){a=e}},2);var o=a({root:{display:"flex",alignItems:"center"},icon:{width:32}}),c=function(e){var t=e.type,l=e.title,a=o(),c=null;return"wiki"===t&&(c=n.createElement(i,{fontSize:"small"})),n.createElement("div",{className:a.root},n.createElement("div",{className:a.icon},c),n.createElement("div",null,l))};l.exportDefault(c)}
+

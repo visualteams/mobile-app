@@ -1,0 +1,2 @@
+function module(n,e,t){var i,l,a,u;t.link("react",{default:function(n){i=n}},0),t.link("react-intl",{FormattedMessage:function(n){l=n}},1),t.link("@material-ui/icons/Extension",{default:function(n){a=n}},2),t.link("../TitleBox",{default:function(n){u=n}},3);var o=function(n){var e=n.plugin,t=n.children;return i.createElement(u,{title:i.createElement(l,{id:"Hooks.Configuration",values:{plugin:e}}),icon:i.createElement(a,null)},t)};t.exportDefault(o)}
+

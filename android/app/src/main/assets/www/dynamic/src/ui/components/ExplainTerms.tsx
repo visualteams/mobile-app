@@ -1,0 +1,2 @@
+function module(e,t,l){var n,i,r;l.link("react",{default:function(e){n=e}},0),l.link("@material-ui/core",{Tooltip:function(e){i=e}},1),l.link("@material-ui/icons/Info",{default:function(e){r=e}},2);var a=function(e){var t=e.title,l=e.tooltip;return n.createElement(i,{title:l,arrow:!0},n.createElement("div",{style:{display:"flex",alignItems:"center",cursor:"default"}},t,n.createElement(r,{style:{fontSize:14,marginLeft:4,color:"#4598ff"}})))};l.exportDefault(a)}
+

@@ -1,0 +1,2 @@
+function module(t,e,n){var a,l;n.link("react",{default:function(t){a=t}},0),n.link("react-intl",{useIntl:function(t){l=t}},1);var r=function(){var t,e=l().formatMessage;return a.createElement("div",{style:{width:"100%",textAlign:"center",marginTop:32,marginBottom:32}},a.createElement("img",{src:"/images/no_data_chart.svg",width:"70%",style:{opacity:.5}}),a.createElement("br",null),a.createElement("small",null,a.createElement("i",null,e({id:"Charts.NoData"}))))};n.exportDefault(r)}
+

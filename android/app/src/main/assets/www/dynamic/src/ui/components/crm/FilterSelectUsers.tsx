@@ -1,0 +1,2 @@
+function module(e,n,t){var a,l,u,i;t.link("@babel/runtime/helpers/slicedToArray",{default:function(e){a=e}},0),t.link("react",{default:function(e){l=e},useState:function(e){u=e}},0),t.link("../../teams/SelectUsers",{default:function(e){i=e}},1);var r=function(e){var n=e.columnDef,t=e.onFilterChanged,r=u([]),o=a(r,2),c=o[0],f=o[1],d=function(e){t(n.tableData.id,e),f(e)};return l.createElement(i,{multiple:!0,value:c,onChange:d})};t.exportDefault(r)}
+

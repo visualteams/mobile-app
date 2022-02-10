@@ -1,0 +1,2 @@
+function module(n,t,e){var i,l,a;e.link("uniforms-bridge-simple-schema-2"),e.link("simpl-schema",{default:function(n){i=n}},0),e.link("meteor/random",{Random:function(n){l=n}},1),e.link("../sharedSchemas",{default:function(n){a=n}},2);var o=new i({_id:{type:String,uniforms:{component:function(){return null}},defaultValue:l.id()},title:String,subtitle:{type:String,optional:!0},coverImage:{type:String,optional:!0},parentId:{type:String,optional:!0,defaultValue:null},createdBy:String}).extend(a);e.exportDefault(o)}
+

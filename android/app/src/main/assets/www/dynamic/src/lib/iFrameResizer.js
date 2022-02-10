@@ -1,0 +1,2 @@
+function module(e,t,n){n.exportDefault((function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=e.triggerInterval,n=e.cb,i,o=0,r=function(){var e,r=global.iFrameForStaticPage,a=r.contentWindow.document.documentElement;if(a){if(t){var c=o===a.offsetHeight,l;o>0&&c&&(clearInterval(i),r.contentWindow.addEventListener("click",n)),o=a.offsetHeight}r.style.height=a.offsetHeight+"px"}};return t?(i=setInterval(r,100),n?function(){return global.iFrameForStaticPage.contentWindow.removeEventListener("click",n)}:void 0):r}))}
+

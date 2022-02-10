@@ -1,0 +1,2 @@
+function module(t,e,n){var o,a,i;n.link("react",{default:function(t){o=t}},0),n.link("react-intl",{FormattedMessage:function(t){a=t}},1),n.link("../components/Button",{default:function(t){i=t}},2);var r=function(){return o.createElement("div",null,o.createElement(a,{id:"RoomNoExist.thisRoomDoesntExist"}),o.createElement("a",{href:"/home"},o.createElement(i,{variant:"contained",color:"primary","data-testid":"button-backHome"},o.createElement(a,{id:"RoomNoExist.thisRoomDoesntExist"}))))};n.exportDefault(r)}
+

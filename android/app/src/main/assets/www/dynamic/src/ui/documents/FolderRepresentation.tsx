@@ -1,0 +1,2 @@
+function module(e,t,l){var n,a,i;l.link("react",{"*":function(e){n=e}},0),l.link("@material-ui/icons/Folder",{default:function(e){a=e}},1),l.link("@material-ui/core/styles/makeStyles",{default:function(e){i=e}},2);var r=i({root:{display:"flex",alignItems:"center"},icon:{width:32}}),o=function(e){var t=e.title,l=r();return n.createElement("div",{className:l.root},n.createElement("div",{className:l.icon},n.createElement(a,{fontSize:"small",color:"primary"})),n.createElement("div",null,t))};l.exportDefault(o)}
+

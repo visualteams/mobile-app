@@ -1,0 +1,2 @@
+function module(e,n,t){var c=function(e,n,t){var c=0,r={};e&&Object.keys(e).forEach((function(t){Object.keys(e[t]).forEach((function(o){Object.keys(e[t][o]).length&&o===n&&Object.keys(e[t][o]).forEach((function(n){e[t][o][n].length>0&&e[t][o][n].forEach((function(e){c+=e.amountPeriodBillable,r[e._id]=e.listInvoicesAll}))}))}))}));var o=Object.values(r).flat().map((function(e){return e._id})),u=t.filter((function(e){return!!o.includes(e._id)})).reduce((function(e,n){return e+parseFloat(n.preTaxAmount)}),0);return c-u};t.exportDefault(c)}
+

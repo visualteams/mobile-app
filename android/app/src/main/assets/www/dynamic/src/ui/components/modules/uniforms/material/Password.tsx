@@ -1,0 +1,2 @@
+function module(e,n,t){var l,a,o;t.link("react",{default:function(e){l=e}},0),t.link("uniforms",{connectField:function(e){a=e}},1),t.link("@material-ui/core/TextField",{default:function(e){o=e}},2);var u=function(e){var n=e.field.label,t=function(n){e.onChange(n.target.value)};return l.createElement(o,{onChange:t,label:n,type:"password",autoComplete:"current-password",fullWidth:!0})};t.exportDefault(a(u))}
+

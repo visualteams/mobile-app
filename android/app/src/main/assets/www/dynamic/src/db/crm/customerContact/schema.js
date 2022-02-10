@@ -1,0 +1,2 @@
+function module(n,t,e){var i,a,o,l;e.link("simpl-schema",{default:function(n){i=n}},0),e.link("meteor/random",{Random:function(n){a=n}},1),e.link("react",{default:function(n){o=n}},2),e.link("../../sharedSchemas",{default:function(n){l=n}},3),e.exportDefault(new i({_id:{type:String,uniforms:{component:function(){return null}},defaultValue:a.id()},firstname:String,lastname:String,email:String,phone:{type:String,optional:!0},customerId:String}).extend(l))}
+

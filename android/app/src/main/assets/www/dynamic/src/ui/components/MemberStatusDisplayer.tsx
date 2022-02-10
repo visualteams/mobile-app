@@ -1,0 +1,2 @@
+function module(e,t,n){var u,a,r;n.link("react-intl",{useIntl:function(e){u=e}},0),n.link("react",{default:function(e){a=e}},1),n.link("../../db/teams/teams/MemberStatus.enum",{MemberStatus:function(e){r=e}},2);var i=function(e){var t,n=e.status,i,s=u().formatMessage,d=((t={})[r.ACCEPTED]=s({id:"MemberStatus.Accepted"}),t[r.REFUSED]=s({id:"MemberStatus.Refused"}),t[r.PENDING]=s({id:"MemberStatus.Pending"}),t[r.REVOKED]=s({id:"MemberStatus.Revoked"}),t);return a.createElement("div",null,d[n])};n.exportDefault(i)}
+
