@@ -6,10 +6,18 @@ import { WebView } from 'react-native-webview'
 import StaticServer from 'react-native-static-server'
 import RNFS from 'react-native-fs'
 import mapLimit from 'async/mapLimit'
+import * as Sentry from '@sentry/react-native'
 
 import askPermission from './src/lib/askPermission'
 import './src/lib/setupNotifications'
 import { tokenApp } from './src/lib/setupNotifications'
+
+Sentry.init({
+  dsn: 'https://1c00cee94f1044d19492568e91f311e1@o395580.ingest.sentry.io/6197563',
+  // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+  // We recommend adjusting this value in production.
+  tracesSampleRate: 1.0,
+})
 
 const backgroundStyle = {
   flex: 1,
@@ -35,7 +43,7 @@ async function copyWWWBuildFiles(directory: string) {
 }
 
 const App: () => Node = () => {
-  const [havePermission, setHavePermission] = useState(false)
+  const [url, setUrl] = useState(null)
   const webRef = useRef()
 
   const initialize = async () => {
@@ -54,17 +62,23 @@ const App: () => Node = () => {
   }, [])
 
   const startApplication = async () => {
-    const server = new StaticServer(8389, getWebResourcesPath())
+    const server = new StaticServer(8389, getWebResourcesPath(), { localOnly: true })
+
+    console.log('Ask permissions')
 
     await askPermission()
 
+    console.log('Start init')
+
     await initialize()
+
+    console.log('Init done !')
 
     const url = await server.start()
 
     console.log('Serving at URL', url)
 
-    setHavePermission(true)
+    setUrl(url)
   }
 
   const handleMessage = (event) => {
@@ -81,13 +95,17 @@ const App: () => Node = () => {
     }
   }
 
+  const uri = `${url}/index.html`
+
+  console.log('uri:', uri)
+
   return (
     <SafeAreaView style={backgroundStyle}>
-      {havePermission && (
+      {url && (
         <WebView
           ref={webRef}
           userAgent={`in-app Mobile ${Platform.OS}`}
-          source={{ uri: 'http://localhost:8389/index.html' }}
+          source={{ uri }}
           allowsInlineMediaPlayback
           originWhitelist={['*']}
           mediaPlaybackRequiresUserAction={false}
@@ -103,4 +121,4 @@ const App: () => Node = () => {
   )
 }
 
-export default App
+export default Sentry.wrap(App)
