@@ -54,7 +54,7 @@ const App: () => Node = () => {
   }, [])
 
   const startApplication = async () => {
-    const server = new StaticServer(8080, getWebResourcesPath(), { localOnly: true })
+    const server = new StaticServer(8389, getWebResourcesPath())
 
     await askPermission()
 
@@ -87,7 +87,7 @@ const App: () => Node = () => {
         <WebView
           ref={webRef}
           userAgent={`in-app Mobile ${Platform.OS}`}
-          source={{ uri: 'http://localhost:8080/index.html' }}
+          source={{ uri: 'http://localhost:8389/index.html' }}
           allowsInlineMediaPlayback
           originWhitelist={['*']}
           mediaPlaybackRequiresUserAction={false}
