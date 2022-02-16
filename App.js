@@ -97,8 +97,7 @@ const App: () => Node = () => {
     }
   }
 
-  //const uri = `${url}/index.html`
-  const uri = `https://www.google.fr`
+  const uri = `${url}/index.html`
 
   return (
     <SafeAreaView style={backgroundStyle}>
