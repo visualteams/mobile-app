@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import type { Node } from 'react'
-import { Platform, SafeAreaView } from 'react-native'
+import { Platform, SafeAreaView, Text } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
 import { WebView } from 'react-native-webview'
 import StaticServer from 'react-native-static-server'
@@ -44,6 +44,7 @@ async function copyWWWBuildFiles(directory: string) {
 
 const App: () => Node = () => {
   const [url, setUrl] = useState(null)
+  const [state, setState] = useState('init...')
   const webRef = useRef()
 
   const initialize = async () => {
@@ -58,25 +59,26 @@ const App: () => Node = () => {
   }
 
   useEffect(() => {
+    SplashScreen.hide()
     startApplication()
   }, [])
 
   const startApplication = async () => {
     const server = new StaticServer(8389, getWebResourcesPath(), { localOnly: true })
 
-    console.log('Ask permissions')
+    setState('Ask permissions')
 
     await askPermission()
 
-    console.log('Start init')
+    setState('Start initialize directory')
 
     await initialize()
 
-    console.log('Init done !')
+    setState('Init done !')
 
     const url = await server.start()
 
-    console.log('Serving at URL', url)
+    setState('Serving at URL')
 
     setUrl(url)
   }
@@ -95,28 +97,25 @@ const App: () => Node = () => {
     }
   }
 
-  const uri = `${url}/index.html`
-
-  console.log('uri:', uri)
+  //const uri = `${url}/index.html`
+  const uri = `https://www.google.fr`
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      {url && (
-        <WebView
-          ref={webRef}
-          userAgent={`in-app Mobile ${Platform.OS}`}
-          source={{ uri }}
-          allowsInlineMediaPlayback
-          originWhitelist={['*']}
-          mediaPlaybackRequiresUserAction={false}
-          startInLoadingState
-          scalesPageToFit
-          javaScriptEnabled={true}
-          onMessage={handleMessage}
-          cacheEnabled={true}
-          onLoadEnd={() => SplashScreen.hide()}
-        />
-      )}
+      <Text>{state}</Text>
+      <WebView
+        ref={webRef}
+        userAgent={`in-app Mobile ${Platform.OS}`}
+        source={{ uri }}
+        allowsInlineMediaPlayback
+        originWhitelist={['*']}
+        mediaPlaybackRequiresUserAction={false}
+        scalesPageToFit
+        javaScriptEnabled={true}
+        onMessage={handleMessage}
+        cacheEnabled={false}
+        onLoadEnd={() => SplashScreen.hide()}
+      />
     </SafeAreaView>
   )
 }
