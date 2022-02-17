@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import type { Node } from 'react'
-import { Platform, SafeAreaView, Text } from 'react-native'
+import { Platform, SafeAreaView } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
 import { WebView } from 'react-native-webview'
 import StaticServer from 'react-native-static-server'
@@ -101,20 +101,21 @@ const App: () => Node = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <Text>{state}</Text>
-      <WebView
-        ref={webRef}
-        userAgent={`in-app Mobile ${Platform.OS}`}
-        source={{ uri }}
-        allowsInlineMediaPlayback
-        originWhitelist={['*']}
-        mediaPlaybackRequiresUserAction={false}
-        scalesPageToFit
-        javaScriptEnabled={true}
-        onMessage={handleMessage}
-        cacheEnabled={false}
-        onLoadEnd={() => SplashScreen.hide()}
-      />
+      {url && (
+        <WebView
+          ref={webRef}
+          userAgent={`in-app Mobile ${Platform.OS}`}
+          source={{ uri }}
+          allowsInlineMediaPlayback
+          originWhitelist={['*']}
+          mediaPlaybackRequiresUserAction={false}
+          scalesPageToFit
+          javaScriptEnabled={true}
+          onMessage={handleMessage}
+          cacheEnabled={false}
+          onLoadEnd={() => SplashScreen.hide()}
+        />
+      )}
     </SafeAreaView>
   )
 }
